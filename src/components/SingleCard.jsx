@@ -1,10 +1,15 @@
-const SingleCard = ({ card, handleCardClick, flipped }) => {
+const SingleCard = ({ card, handleCardClick, flipped, isDisabled }) => {
   return (
     <div className="card">
       <div className={flipped ? "flipped" : ""}>
         <img src={card.src} alt="card front" className="front" />
         <img
-          onClick={() => handleCardClick(card)}
+          onClick={() => {
+            if (!isDisabled) {
+              // if(!false){}
+              handleCardClick(card);
+            }
+          }}
           src="/img/cover.png"
           alt="card back"
           className="back"
